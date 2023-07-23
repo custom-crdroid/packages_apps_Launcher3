@@ -32,6 +32,7 @@ import com.android.launcher3.util.MainThreadInitializedObject;
 import com.android.launcher3.util.SafeCloseable;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.util.UserIconInfo;
+import com.android.launcher3.Utilities;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -59,6 +60,8 @@ public class LauncherIcons extends BaseIconFactory implements AutoCloseable {
     private final ConcurrentLinkedQueue<LauncherIcons> mPool;
 
     private MonochromeIconFactory mMonochromeIconFactory;
+    
+    private boolean isMonochromeIconsEnabled;
 
     private boolean mForceMonoIconEnabled;
 
