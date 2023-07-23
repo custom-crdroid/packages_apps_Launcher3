@@ -55,6 +55,7 @@ import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.customization.IconDatabase;
 import com.android.launcher3.icons.DotRenderer;
 import com.android.launcher3.logging.FileLog;
+import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.model.DeviceGridState;
 import com.android.launcher3.provider.RestoreDbTask;
 import com.android.launcher3.testing.shared.ResourceUtils;
@@ -66,6 +67,7 @@ import com.android.launcher3.util.Partner;
 import com.android.launcher3.util.SafeCloseable;
 import com.android.launcher3.util.WindowBounds;
 import com.android.launcher3.util.window.WindowManagerProxy;
+import com.android.launcher3.Utilities;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -363,6 +365,10 @@ public class InvariantDeviceProfile implements SafeCloseable, OnSharedPreference
             case DeviceProfile.KEY_ROW_HEIGHT:
             case IconDatabase.KEY_ICON_PACK:
                 onConfigChanged(mContext);
+                break;
+            case IconDatabase.KEY_THEMED_ICON_PACK:
+            case Utilities.KEY_FORCE_MONOCHROME_ICON:
+                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
         }
     }

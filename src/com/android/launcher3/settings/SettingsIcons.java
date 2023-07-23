@@ -54,6 +54,7 @@ import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.customization.IconDatabase;
 import com.android.launcher3.icons.pack.IconPackSettingsActivity;
+import com.android.launcher3.icons.pack.ThemeIconsSettingsActivity;
 import com.android.launcher3.settings.preference.ReloadingListPreference;
 import com.android.launcher3.util.AppReloader;
 import com.android.launcher3.util.SettingsCache;
@@ -282,6 +283,8 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
             switch (key) {
                 case IconDatabase.KEY_ICON_PACK:
                     updatePreferences();
+                case IconDatabase.KEY_THEMED_ICON_PACK:
+                    updatePreferences();
                     break;
             }
         }
@@ -296,6 +299,9 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
                     return BuildConfig.NOTIFICATION_DOTS_ENABLED;
                 case IconDatabase.KEY_ICON_PACK:
                     setupIconPackPreference(preference);
+                    return true;
+                case IconDatabase.KEY_THEMED_ICON_PACK:
+                    setupThemedIconsPackPreference(preference);
                     return true;
             }
 
@@ -366,6 +372,15 @@ public class SettingsIcons extends CollapsingToolbarBaseActivity
             preference.setSummary(pkgLabel);
             preference.setOnPreferenceClickListener(p -> {
                 startActivity(new Intent(getActivity(), IconPackSettingsActivity.class));
+                return true;
+            });
+        }
+        
+        private void setupThemedIconsPackPreference(Preference preference) {
+            final String pkgLabel = IconDatabase.getGlobalLabelThemedIcons(getActivity());
+            preference.setSummary(pkgLabel);
+            preference.setOnPreferenceClickListener(p -> {
+                startActivity(new Intent(getActivity(), ThemeIconsSettingsActivity.class));
                 return true;
             });
         }
