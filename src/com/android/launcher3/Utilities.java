@@ -211,6 +211,7 @@ public final class Utilities {
     public static final String KEY_DRAWER_SCROLLBAR = "pref_drawer_scrollbar";
     public static final String KEY_FORCE_MONOCHROME_ICON = "pref_force_monochrome_icon";
     public static final String KEY_AUTO_KEYABORD = "pref_auto_keyboard";
+    public static final String KEY_RECENTS_CHIPS = "pref_recents_chips";
 
     /**
      * Returns true if theme is dark.
