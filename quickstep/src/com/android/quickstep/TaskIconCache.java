@@ -27,6 +27,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.AdaptiveIconDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
@@ -280,7 +281,7 @@ public class TaskIconCache implements DisplayInfoChangeListener {
                     DisplayController.INSTANCE.get(mContext).getInfo().getDensityDpi(),
                     mIconBitmapSize) {
                 @Override
-                protected Drawable getMonochromeDrawable(Drawable base) {
+                protected Drawable getMonochromeDrawable(AdaptiveIconDrawable base) {
                     Drawable mono = super.getMonochromeDrawable(base);
                     if (mono != null || !mIsMonochromeIconsEnabled) {
                         return mono;

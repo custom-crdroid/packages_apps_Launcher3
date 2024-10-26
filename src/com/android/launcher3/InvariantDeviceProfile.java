@@ -368,7 +368,7 @@ public class InvariantDeviceProfile implements SafeCloseable, OnSharedPreference
                 break;
             case IconDatabase.KEY_THEMED_ICON_PACK:
             case Utilities.KEY_FORCE_MONOCHROME_ICON:
-                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                LauncherAppState.INSTANCE.executeIfCreated(app -> app.setNeedsRestart());
                 break;
         }
     }
