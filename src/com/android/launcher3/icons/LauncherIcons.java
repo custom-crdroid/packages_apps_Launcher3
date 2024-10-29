@@ -60,8 +60,6 @@ public class LauncherIcons extends BaseIconFactory implements AutoCloseable {
     private final ConcurrentLinkedQueue<LauncherIcons> mPool;
 
     private MonochromeIconFactory mMonochromeIconFactory;
-    
-    private boolean isMonochromeIconsEnabled;
 
     private boolean mForceMonoIconEnabled;
 
