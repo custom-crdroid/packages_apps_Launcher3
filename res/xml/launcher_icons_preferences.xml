@@ -35,7 +35,7 @@
         launcher:iconSpaceReserved="false" />
 
     <SwitchPreferenceCompat
-        android:key="pref_forced_monochrome_icons"
+        android:key="pref_force_monochrome_icon"
         android:title="@string/pref_force_monochrome_themed_icons_title"
         android:summary="@string/pref_force_monochrome_themed_icons_summary"
         android:defaultValue="false"
