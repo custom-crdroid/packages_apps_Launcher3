@@ -94,7 +94,7 @@ public class NavHandleLongPressHandler implements ResourceBasedOverride {
     
     private boolean isLongPressSearchEnabled() {
         return Settings.Secure.getInt(
-            mContext.getContentResolver(), "search_press_hold_nav_handle_enabled", 1) == 1;
+            mContext.getContentResolver(), "search_all_entrypoints_enabled", 1) == 1;
     }
 
     private void updateThumbnail() {
