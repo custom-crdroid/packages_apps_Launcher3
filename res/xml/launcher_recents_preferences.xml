@@ -39,6 +39,7 @@
             android:summary="@string/recents_chips_summary"
             android:defaultValue="true"
             android:persistent="true"
+	    android:enabled="false"
             launcher:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat
