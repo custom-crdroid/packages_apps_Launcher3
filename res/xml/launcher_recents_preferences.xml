@@ -39,7 +39,6 @@
             android:summary="@string/recents_chips_summary"
             android:defaultValue="true"
             android:persistent="true"
-            android:layout="@layout/top_level_preference_middle_card"
             launcher:iconSpaceReserved="false" />
 
         <SwitchPreferenceCompat

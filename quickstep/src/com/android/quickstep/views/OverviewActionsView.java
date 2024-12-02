@@ -223,7 +223,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         View clearall = findViewById(mUseChips ? R.id.action2_clear_all : R.id.action_clear_all);
         clearall.setOnClickListener(this);
         clearall.setVisibility(mClearAll ? VISIBLE : GONE);
-        findViewById(R.id.clear_all_space).setVisibility(mUseChips && mClearAll ? VISIBLE : GONE);
+        findViewById(R.id.clear_all_container).setVisibility(mUseChips && mClearAll ? VISIBLE : GONE);
 
         View lens = findViewById(mUseChips ? R.id.action2_lens : R.id.action_lens);
         lens.setOnClickListener(this);
