@@ -32,7 +32,8 @@ import com.android.quickstep.TopTaskTracker;
 
 import com.android.systemui.shared.recents.model.ThumbnailData;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
-
+import com.android.internal.util.android.VibrationUtils;
+import com.android.internal.util.crdroid.Utils;
 import java.util.List;
 
 /**
@@ -70,8 +71,8 @@ public class NavHandleLongPressHandler implements ResourceBasedOverride {
         if (!isLongPressSearchEnabled()) {
             return null;
         }
-        mVibratorWrapper.cancelVibrate();
         updateThumbnail();
+        VibrationUtils.triggerVibration(mContext, 5);
         if (mThumbnailData != null && mThumbnailData.getThumbnail() != null) {
             if (DEBUG) Log.d(TAG, "getLongPressRunnable: Google lens should start now");
             if (ImageActionUtils.startLensSearchActivity(mContext, mThumbnailData.getThumbnail(), null, TAG)) {
