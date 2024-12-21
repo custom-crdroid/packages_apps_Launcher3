@@ -143,10 +143,8 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
                 LauncherAppState.INSTANCE.executeIfCreated(app -> app.setNeedsRestart());
                 break;
             case CTS_KEY:
-                mCtsEnabled = LauncherPrefs.getPrefs(mContext).getBoolean(CTS_KEY, mContextualSearchDefValue);
-                Settings.Secure.putInt(mContext.getContentResolver(),
-                        Settings.Secure.SEARCH_ALL_ENTRYPOINTS_ENABLED, mCtsEnabled ? 1 : 0);
-                SystemUiProxy.INSTANCE.get(mContext).setAssistantOverridesRequested(
+                mCtsEnabled = Settings.Secure.putInt(mContext.getContentResolver(),"search_all_entrypoints_enabled", mCtsEnabled ? 1 : 0);
+                        SystemUiProxy.INSTANCE.get(mContext).setAssistantOverridesRequested(
                         AssistUtils.newInstance(mContext).getSysUiAssistOverrideInvocationTypes());
                 break;
             default:
@@ -244,14 +242,18 @@ public class SettingsMisc extends CollapsingToolbarBaseActivity
                 getActivity().setTitle(getPreferenceScreen().getTitle());
             }
 
-            mCtsEnabled = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.SEARCH_ALL_ENTRYPOINTS_ENABLED, mContextualSearchDefValue ? 1 : 0) == 1;
+            mContextualSearchDefValue = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_searchAllEntrypointsEnabledDefault);
 
-            mCtsPref = (SwitchPreferenceCompat) findPreference(CTS_KEY);
+            mCtsEnabled = Settings.Secure.getInt(mContext.getContentResolver(),
+           	"search_all_entrypoints_enabled", mContextualSearchDefValue ? 1 : 0) == 1;
+
             if (!AssistUtils.newInstance(mContext).isContextualSearchIntentAvailable()) {
-                getPreferenceScreen().removePreference(mCtsPref);
+                Settings.Secure.putInt(mContext.getContentResolver(),
+                Settings.Secure.SEARCH_ALL_ENTRYPOINTS_ENABLED, 0);
             } else {
-                mCtsPref.setChecked(mCtsEnabled);
+                Settings.Secure.putInt(mContext.getContentResolver(),
+                Settings.Secure.SEARCH_ALL_ENTRYPOINTS_ENABLED, mCtsEnabled ? 1 : 0);
             }
         }
 
