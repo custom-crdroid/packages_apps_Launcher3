@@ -69,12 +69,11 @@ public class Themes {
      * Returns true if workspace icon theming is enabled
      */
     public static boolean isThemedIconEnabled(Context context) {
-        String iconpack = LauncherPrefs.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
-        return iconpack != null;
+        return LauncherPrefs.get(context).get(THEMED_ICONS);
     }
 
     public static String getThemedIconPack(Context context) {
-        return LauncherPrefs.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
+        return Utilities.getPrefs(context).getString(KEY_THEMED_ICON_PACK, null);
     }
 
     public static String getDefaultBodyFont(Context context) {
