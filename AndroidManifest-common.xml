@@ -64,6 +64,10 @@
     <uses-permission android:name="android.permission.REGISTER_STATS_PULL_ATOM"/>
     <uses-permission android:name="android.permission.ACCESS_CONTEXTUAL_SEARCH"/>
 
+    <!-- Lens-->
+    <uses-permission android:name="com.google.android.googlequicksearchbox.permission.LENS_SERVICE" />
+    <uses-permission android:name="com.google.android.googlequicksearchbox.permission.LENSVIEW_BROADCAST" />
+
     <!-- AppLock -->
     <uses-permission android:name="android.permission.MANAGE_APP_LOCK" />
 
