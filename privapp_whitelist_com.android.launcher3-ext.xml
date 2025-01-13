@@ -29,7 +29,5 @@
         <permission name="com.crdroid.permission.START_FREEFORM"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS"/>
         <permission name="android.permission.ACCESS_CONTEXTUAL_SEARCH"/>
-        <permission name="com.google.android.googlequicksearchbox.permission.LENS_SERVICE"/>
-        <permission name="com.google.android.googlequicksearchbox.permission.LENSVIEW_BROADCAST"/>
     </privapp-permissions>
 </permissions>
